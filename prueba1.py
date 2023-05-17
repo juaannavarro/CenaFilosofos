@@ -17,9 +17,17 @@ class Filosofo():
     def comer(self):
         print(self.nombre, "está comiendo")
         
-    def solucionç(self):
+    def solucion(self):
         tenedor1 = self.tenedorIZQ
         tenedor2 = self.tenedorDER
+        while True:
+            tenedor1.acquire()
+            locked = tenedor2.acquire(False)
+            if locked:
+                break
+            tenedor1.release()
+            print(self.nombre, "intercambia tenedores")
+            tenedor1, tenedor2 = tenedor2, tenedor1
         
         
     
