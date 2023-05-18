@@ -34,6 +34,7 @@ class Filosofo(threading.Thread):
                 break
             tenedorIZQ.release()
             print(f'{self.nombre} está esperando los tenedores')
+            tenedorIZQ, tenedorDER = tenedorDER, tenedorIZQ
             
     
     def soltar_tenedores(self):
